@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import Main from "./main";
 import reportWebVitals from "./reportWebVitals";
 import ButtonLayout from "./ButtonLayout";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ButtonLayout/>
+    
     <Main />
+    
   </React.StrictMode>,
   document.getElementById("root")
 );

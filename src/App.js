@@ -1,7 +1,8 @@
 import './App.css';
+import ButtonLayout from './ButtonLayout';
 import SearchIcon from './search.svg';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 /*function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
     prompt('Please enter your name')
   };
   return (
-    
+    <div>
+    < ButtonLayout />
     <div className = 'app'>
       
       <h1>Catering Services</h1>
@@ -104,6 +106,7 @@ function App() {
       
       
       
+    </div>
     </div>
   );
 }

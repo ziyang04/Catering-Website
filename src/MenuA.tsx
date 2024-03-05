@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { useState } from 'react';
 import { IndividualFood } from './individualfood.tsx';
+import ButtonLayout from './ButtonLayout.js';
 
 export default function MenuA() {
     const [activeButtonA, setActiveButtonA] = useState(0);
@@ -35,6 +36,8 @@ export default function MenuA() {
     }
 
     return (
+        <div>
+        < ButtonLayout/>
         <div className = "menu">
             <div className = "app">
                 <h1>Menu 1</h1>
@@ -70,6 +73,7 @@ export default function MenuA() {
             </div>
             
 
+        </div>
         </div>
     )
     
