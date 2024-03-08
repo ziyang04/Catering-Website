@@ -3,16 +3,16 @@ import './App.css';
 import ButtonLayout from "./ButtonLayout";
 
 
-function About() {
+function Contact() {
     return (
         <div>
         <ButtonLayout />
             <div className="App">
-                <h1>About</h1>
+                <h1>Contacts</h1>
             </div>
         </div>
     )
 
 };
 
-export default About;
+export default Contact;
