@@ -2,8 +2,8 @@ import './App.css';
 import ButtonLayout from './ButtonLayout';
 import SearchIcon from './search.svg';
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
-
+import { BrowserRouter, Link, useNavigate} from 'react-router-dom';
+import { useState} from 'react';
 /*function App() {
   return (
     <div className="App">S
@@ -15,11 +15,15 @@ import { BrowserRouter, Link } from 'react-router-dom';
 
 
 function App() {
-  // const navigate = useNavigate();
-
-  const enteredName = () => {
-    prompt('Please enter your name')
-  };
+  const navigate = useNavigate();
+  const navigateToA = () => {
+    navigate("/menuA")
+  }
+  const [inputValue,setInputValue] = useState('');
+  const handleInput = (event) => {
+    setInputValue(event.target.value)
+  }
+ 
   return (
     <div>
     < ButtonLayout />
@@ -31,12 +35,17 @@ function App() {
       <div className = "search">
         <input 
           placeholder="Search for Menu Sets"
+          
+          onChange = {handleInput}
+          //onKeydown = {onKeydown()}
         />
         <img
           src = {SearchIcon}
           alt = "search"
           onClick = {() => {
-            enteredName()
+            if (inputValue === "1") {
+                navigateToA()
+            }
             
           }}
         />
