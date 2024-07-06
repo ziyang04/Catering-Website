@@ -5,11 +5,24 @@ import { IndividualFood } from './individualfood.tsx';
 import ButtonLayout from './ButtonLayout.js';
 
 export default function MenuA() {
+    function fetchData() {
+        fetch('/api/data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({message:fdescribe})
+
+
+        })
+    }
+
     const [activeButtonA, setActiveButtonA] = useState(0);
     const handleClickA = (buttonId : number)=> {
        setActiveButtonA(buttonId);
        console.log('clicked');
     }
+
 
     const [activeButtonB, setActiveButtonB] = useState(0);
     const handleClickB = (buttonId : number)=> {
@@ -40,9 +53,8 @@ export default function MenuA() {
         < ButtonLayout/>
         <div className = "menu">
             <div className = "app">
-                <h1>Menu 1</h1>
+                <h1>Menu A</h1>
             </div>
-           
             <div className = "sections">
                 <h3>Choose 1 meat:</h3>
                 <IndividualFood clickButton={() => handleClickA(1)} trigger={activeButtonA == 1 ? true : false} />
@@ -71,9 +83,13 @@ export default function MenuA() {
                 <IndividualFood src = "https://www.budgetbytes.com/wp-content/uploads/2022/02/15-Minute-Vegetable-Curry-pot.jpg" dish = "Curry Vege" clickButton={() => handleClickE(1)} trigger={activeButtonE == 1 ? true : false} />
                 <IndividualFood src = "https://www.newmalaysiankitchen.com/wp-content/uploads/2020/03/stir-fry-mixed-vegetables.jpeg" dish = "Stir Fried Mixed Vege" clickButton={() => handleClickE(2)} trigger={activeButtonE == 2 ? true : false} />
             </div>
-            
-
+            <div className="submit-button-container">
+                <div className="submit-button">
+                    <button>Submit</button>
+                </div>
         </div>
+        </div>
+        
         </div>
     )
     
