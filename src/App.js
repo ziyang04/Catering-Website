@@ -3,7 +3,7 @@ import ButtonLayout from './ButtonLayout';
 import SearchIcon from './search.svg';
 import React from 'react';
 import { BrowserRouter, Link, useNavigate} from 'react-router-dom';
-import { useState} from 'react';
+import { useEffect,useState} from 'react';
 /*function App() {
   return (
     <div className="App">S
@@ -19,11 +19,19 @@ function App() {
   const navigateToA = () => {
     navigate("/menuA")
   }
-  const [inputValue,setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const handleInput = (event) => {
-    setInputValue(event.target.value)
-  }
- 
+    setInputValue(event.target.value);
+  };
+  
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === 'Return' || event.keyCode === 13) {
+      // Redirect to the page corresponding to the input value
+      console.log(inputValue);
+      navigate(`/menu${inputValue.toUpperCase()}`);
+    }
+  };
+  
   return (
     <div>
     < ButtonLayout />
@@ -31,19 +39,18 @@ function App() {
       
       <h1>Catering Services</h1>
       
-      
       <div className = "search">
         <input 
-          placeholder="Search for Menu Sets"
-          
+          placeholder="Enter Menu Letter"
+          value = {inputValue}
           onChange = {handleInput}
-          //onKeydown = {onKeydown()}
+          onKeyDown = {handleKeyDown}
         />
         <img
           src = {SearchIcon}
           alt = "search"
           onClick = {() => {
-            if (inputValue === "1") {
+            if (inputValue === "A" || inputValue === "a") {
                 navigateToA()
             }
             
@@ -56,7 +63,7 @@ function App() {
           <Link to = "/menuA">
           <img src = "https://redhousespice.com/wp-content/uploads/2017/01/chinese-sweet-sour-fish.jpg" alt="Menu A" className="image"/>
           <p className = "image-description">
-            Menu 1
+            Menu A
           </p>
           </Link>
         </div>
@@ -67,7 +74,7 @@ function App() {
           <Link to = "/menuA">
           <img src = "https://redhousespice.com/wp-content/uploads/2017/01/chinese-sweet-sour-fish.jpg" alt="Menu B" className="image"/>
           <p className = "image-description">
-            Menu 2
+            Menu B
           </p>
           </Link>
         </div>
@@ -79,7 +86,7 @@ function App() {
           <Link to = "/menuA">
           <img src = "https://redhousespice.com/wp-content/uploads/2017/01/chinese-sweet-sour-fish.jpg" alt="Menu C" className="image"/>
           <p className = "image-description">
-            Menu 3
+            Menu C
           </p>
           </Link>
         </div>
@@ -91,7 +98,7 @@ function App() {
           <Link to = "/menuA">
           <img src = "https://redhousespice.com/wp-content/uploads/2017/01/chinese-sweet-sour-fish.jpg" alt="Menu D" className="image"/>
           <p className = "image-description">
-            Menu 4
+            Menu D
           </p>
           </Link>
         </div>
@@ -103,19 +110,15 @@ function App() {
           <Link to = "/menuA">
           <img src = "https://redhousespice.com/wp-content/uploads/2017/01/chinese-sweet-sour-fish.jpg" alt="Menu E" className="image"/>
           <p className = "image-description">
-            Menu 5
+            Menu E
           </p>
           </Link>
         </div>
         <h2>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;RM34.90 per person</h2>
       </div>
       
-      
-      
-      
-      
-      
     </div>
+
     </div>
   );
 }
