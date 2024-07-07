@@ -189,7 +189,6 @@ h3 {
   display: flex;
   background-color: black;
   justify-content: space-between;
-  
   flex-direction:column;
 }
 
